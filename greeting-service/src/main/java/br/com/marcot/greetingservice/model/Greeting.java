@@ -1,4 +1,4 @@
-package br.com.marcot.greetingservice;
+package br.com.marcot.greetingservice.model;
 
 public class Greeting {
     private final long id;
