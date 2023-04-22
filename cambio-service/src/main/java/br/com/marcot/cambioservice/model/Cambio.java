@@ -6,15 +6,34 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
+@Entity(name = "cambio")
 public class Cambio implements Serializable {
 
-    private Long id;
-    private String from;
-    private String to;
-    private BigDecimal conversionFactor;
-    private BigDecimal convertedValue;
-    private String environment;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "from_currency", nullable = false, length = 3)
+	private String from;
+
+	@Column(name = "to_currency", nullable = false, length = 3)
+	private String to;
+	
+	@Column(nullable = false)
+	private BigDecimal conversionFactor;
+	
+	@Transient
+	private BigDecimal convertedValue;
+
+	@Transient
+	private String environment;
     
     
 	public Cambio() {}
