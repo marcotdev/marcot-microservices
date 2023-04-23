@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
 import br.com.marcot.bookservice.model.Book;
 import br.com.marcot.bookservice.proxi.CambioProxy;
 import br.com.marcot.bookservice.repository.BookRepository;
-import br.com.marcot.bookservice.response.Cambio;
+
 
 @RestController
 @RequestMapping("book-service")
@@ -44,7 +42,7 @@ public class BookController {
 		var port = environment.getProperty("local.server.port");
 		book.setEnvironment(
 				"Book port: " + port + 
-				" Cambio Port " + cambio.getEnvironment());
+				"Cambio Port " + cambio.getEnvironment());
 		book.setPrice(cambio.getConvertedValue());
 		return book;
 	}
