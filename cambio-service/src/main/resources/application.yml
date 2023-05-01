@@ -24,4 +24,10 @@ spring:
     schemas: cambio_service
     user: marcot
     password: senha123
-  
+  leuth:
+    sampler:
+      probability: 1.0
+springdoc:
+  show-actuator: true
+  api-docs:
+    path: cambio-service/v3/api-docs 
